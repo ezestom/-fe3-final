@@ -7,7 +7,7 @@ import { VscArrowSmallRight } from "react-icons/vsc";
 
 //hacer el cambio de theme con el button
 
-const changeTheme = () => {
+export const changeTheme = () => {
 	const theme = localStorage.getItem("theme");
 	console.log("changeTheme");
 	if (theme === "light") {

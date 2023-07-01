@@ -10,6 +10,19 @@ body {
 	margin: 0;
 	padding: 0 10%;
 }
+.dark {
+	background-color: rgba(0, 0, 0, 0.1);
+	transition: all 0.5s ease-in-out;
+}
+
+.light {
+	background-color: #fff;
+	color: black;
+	transition: all 0.5s ease-in-out;
+}
+.light > a {
+	color: black;
+}
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
@@ -164,15 +177,6 @@ form {
 	border-radius: 1000px;
 }
 
-
-
-.dark {
-	background-color: #12121296;
-	color: white;
-}
-.dark > a {
-	color: white;
-}
 .success-message {
 	margin-top: 3rem;
 	background-color: var(--inputs);
