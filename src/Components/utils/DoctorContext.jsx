@@ -1,12 +1,13 @@
 import React, { createContext, useEffect, useReducer, useContext } from "react";
 import axios from "axios";
 
+
 const DoctorContext = createContext(undefined);
 
 const initialDoctorState = {
 	doctorList: [],
 	doctorDetail: {},
-	favs : [],
+	favs: JSON.parse(localStorage.getItem("favs")) || [],
 };
 
 const doctorReducer = (state, action) => {
@@ -46,11 +47,10 @@ const DoctorContextProvider = ({ children }) => {
 			)
 			.catch((err) => {
 				console.error("Error fetching doctor list:", err);
-				// Aquí puedes agregar la lógica para mostrar el error al usuario.
 			});
 	}, [urlDoctor]);
 	console.log(doctorState.doctorList);
-	console.log(doctorState.favs);
+	console.log(doctorState.doctorList[0]);
 
 	useEffect(() => {
 		localStorage.setItem("favs", JSON.stringify(doctorState.favs));

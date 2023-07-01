@@ -7,14 +7,24 @@ const Card = ({ name, username, id }) => {
 	const { doctorState, doctorDispatch } = useDoctorStates();
 
 	const addFav = () => {
-		const findDoctor = doctorState.favs.find((doctor) => doctor.id === doctorState.doctorDetail.id);
-		if (!findDoctor){
-		doctorDispatch({
-			type: "ADD_FAV",
-			payload: doctorState.doctorList,
-		})
-	}else{
-			alert("Ya esta en favoritos")
+		const doctorList = doctorState.doctorList
+		console.log(doctorList, "doctorList");
+
+		let isDoctorInFavorites = false;
+
+		doctorList.forEach((doctor) => {
+			if (doctor.id === doctorState.doctorList.id) {
+				isDoctorInFavorites = true; 
+			}
+		});
+
+		if (isDoctorInFavorites) {
+			alert("Ya está en favoritos");
+		} else {
+			doctorDispatch({
+				type: "ADD_FAV",
+				payload: doctorList.length,
+			});
 		}
 	};
 

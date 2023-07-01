@@ -4,6 +4,10 @@ import "./index.css";
 import { LuActivity } from "react-icons/lu";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+const theme = "light";
+
+
+
 
 export const Home = () => {
 	return (
