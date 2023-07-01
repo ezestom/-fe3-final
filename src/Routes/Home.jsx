@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../Components/Card";
 import "./index.css";
 import { LuActivity } from "react-icons/lu";
-import { changeTheme } from "../Components/Navbar";
+
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 //hacer el cambio de theme con el button

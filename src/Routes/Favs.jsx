@@ -9,7 +9,6 @@ export const Favs = () => {
 
 	console.log(doctorState);
 	// Lógica para determinar el tema actual
-	const theme = doctorState.theme === "dark" ? "dark" : "light";
 
 	return (
 		<main className="home">
@@ -20,36 +19,19 @@ export const Favs = () => {
 				</h1>
 			</div>
 			<div className="card-grid">
-				{doctorState.favs &&
-					doctorState.favs.map((doctor) => (
-						<div
-							className="card"
-							key={doctor.id}
-							style={{ maxWidth: "250px" }}>
-							<img className="avatar" src={avatar} alt="" />
-							<h3 className="name">Name: {doctor.name}</h3>
-							<h4 className="username">{doctor.username}</h4>
-							<h5 className="id">Id: {doctor.id}</h5>
-						</div>
-					))}
+				{/* Aqui deberias renderizar las cards */}
+				{doctorState.doctorList.map((doctor) => (
+					<div
+						className="card2"
+						key={doctor.id}
+						style={{ maxWidth: "250px" }}>
+						<img src={avatar} alt="" />
+						<h3>Name: {doctor.name}</h3>
+						<h4>User: {doctor.username}</h4>
+						<h5>Id: {doctor.id}</h5>
+					</div>
+				))}
 			</div>
 		</main>
 	);
 };
-
-// <div className={`card-grid ${theme}`}>
-// 	{doctorState.favs &&
-// 		doctorState.favs.map((doctor) => (
-// 			<div
-// 				className="card"
-// 				key={doctor.id}
-// 				style={{ maxWidth: "250px" }}>
-// 				<img className="avatar" src={avatar} alt="" />
-// 				<h3 className="name">Name: {doctor.name}</h3>
-// 				<h4 className="username">
-// 					User: {doctor.username}
-// 				</h4>
-// 				<h5 className="id">Id: {doctor.id}</h5>
-// 			</div>
-// 		))}
-// </div>;
