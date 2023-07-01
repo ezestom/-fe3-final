@@ -20,17 +20,18 @@ export const Favs = () => {
 			</div>
 			<div className="card-grid">
 				{/* Aqui deberias renderizar las cards */}
-				{doctorState.doctorList.map((doctor) => (
-					<div
-						className="card2"
-						key={doctor.id}
-						style={{ maxWidth: "250px" }}>
-						<img src={avatar} alt="" />
-						<h3>Name: {doctor.name}</h3>
-						<h4>User: {doctor.username}</h4>
-						<h5>Id: {doctor.id}</h5>
-					</div>
-				))}
+				{doctorState.favs &&
+					doctorState.favs.map((doctor) => (
+						<div
+							className="card2"
+							key={doctor.id}
+							style={{ maxWidth: "250px" }}>
+							<img src={avatar} alt="" />
+							<h3>Name: {doctorState.favs.name}</h3>
+							<h4>User: {doctor.username}</h4>
+							<h5>Id: {doctor.id}</h5>
+						</div>
+					))}
 			</div>
 		</main>
 	);

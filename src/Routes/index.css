@@ -168,6 +168,7 @@ form {
 }
 .card > a > img {
 	border-radius: 100px;
+	width: 75%;
 }
 .card > a {
 	display: flex;
@@ -180,6 +181,7 @@ form {
 }
 .card2 > img {
 	border-radius: 1000px;
+	width: 75%;
 }
 
 .success-message {
