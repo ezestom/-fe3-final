@@ -13,6 +13,8 @@ body {
 .dark {
 	background-color: rgba(0, 0, 0, 0.2);
 	transition: all 0.5s ease-in-out;
+	height: auto;
+	min-height: 100vh;
 }
 
 .light {
@@ -156,9 +158,9 @@ form {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	border-radius: 8px;
 }
-.card2 >h3,
-.card2 >h4,
-.card2 >h5 {
+.card2 > h3,
+.card2 > h4,
+.card2 > h5 {
 	margin: 0;
 	font-size: 1.25rem;
 }
