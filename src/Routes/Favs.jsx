@@ -10,6 +10,7 @@ export const Favs = () => {
 	console.log(doctorState);
 	// Lógica para determinar el tema actual
 
+
 	return (
 		<main className="home">
 			<div>
@@ -27,7 +28,7 @@ export const Favs = () => {
 							key={doctor.id}
 							style={{ maxWidth: "250px" }}>
 							<img src={avatar} alt="" />
-							<h3>Name: {doctorState.favs.name}</h3>
+							<h3>Name: {doctor.name}</h3>
 							<h4>User: {doctor.username}</h4>
 							<h5>Id: {doctor.id}</h5>
 						</div>

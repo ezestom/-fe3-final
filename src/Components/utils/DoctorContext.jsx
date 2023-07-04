@@ -1,8 +1,7 @@
 import React, { createContext, useEffect, useReducer, useContext } from "react";
 import axios from "axios";
 
-
-const DoctorContext = createContext(undefined);
+const DoctorContext = createContext();
 
 const initialDoctorState = {
 	doctorList: [],
@@ -49,8 +48,7 @@ const DoctorContextProvider = ({ children }) => {
 				console.error("Error fetching doctor list:", err);
 			});
 	}, [urlDoctor]);
-	console.log(doctorState.doctorList);
-	console.log(doctorState.doctorList[0]);
+	console.log(doctorState);
 
 	useEffect(() => {
 		localStorage.setItem("favs", JSON.stringify(doctorState.favs));

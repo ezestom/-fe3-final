@@ -1,38 +1,29 @@
-import { useDoctorStates } from "./utils/DoctorContext";
+import React from "react";
 import { Link } from "react-router-dom";
+import { useDoctorStates } from "./utils/DoctorContext";
 import "../Routes/index.css";
 import avatar from "./assets/images/doctor.jpg";
 
-const Card = ({ name, username, id }) => {
+const Card = () => {
 	const { doctorState, doctorDispatch } = useDoctorStates();
 
-	const addFav = () => {
-		const doctorList = doctorState.doctorList
-		console.log(doctorList, "doctorList");
-
-		let isDoctorInFavorites = false;
-
-		doctorList.forEach((doctor) => {
-			if (doctor.id === doctorState.doctorList.id) {
-				isDoctorInFavorites = true; 
-			}
-		});
+	const addFav = (doctor) => {
+		const isDoctorInFavorites = doctorState.favs
+			.map((favDoctor) => favDoctor.id)
+			.includes(doctor.id);
 
 		if (isDoctorInFavorites) {
 			alert("Ya está en favoritos");
 		} else {
 			doctorDispatch({
 				type: "ADD_FAV",
-				payload: doctorList.length,
+				payload: doctor,
 			});
 		}
 	};
 
-	// Aqui iria la logica para agregar la Card en el localStorage
-
 	return (
 		<div className="card-grid">
-			{/* En cada card deberan mostrar en name - username y el id */}
 			{doctorState.doctorList.map((doctor) => (
 				<div className="card" key={doctor.id}>
 					<Link to={"/detail/" + doctor.id}>
@@ -41,15 +32,13 @@ const Card = ({ name, username, id }) => {
 						<h4>User: {doctor.username}</h4>
 						<h5>Id: {doctor.id}</h5>
 					</Link>
-					<button onClick={addFav} className="favButton">
+					<button
+						onClick={() => addFav(doctor)}
+						className="favButton">
 						Add fav
 					</button>
 				</div>
 			))}
-
-			{/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-			{/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
 		</div>
 	);
 };
